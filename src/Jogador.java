@@ -15,7 +15,7 @@ public class Jogador {
     }
 
     public Carta jogada(Carta cartaNaMesa) {
-        return new JogadaDecisao().decidirJogada(cartaNaMesa);
+        return new JogadaDecisao(cartas).decidirJogada(cartaNaMesa);
     }
 
     public void exibeCartas() { // metodo para exibir as cartas
@@ -28,16 +28,22 @@ public class Jogador {
     // classe privada com a logica de decisões
     private class JogadaDecisao {
 
+        public List<Carta> cartas;
+
+        public JogadaDecisao(List<Carta> cartas){
+            this.cartas = cartas;
+        }
+
         // esse metodo é para decidir cada jogada
         public Carta decidirJogada(Carta cartaNaMesa) {
-            Carta cartaEscolhida = primeiraMao(cartaNaMesa);
-            if (cartaEscolhida == null) {
-                cartaEscolhida = segundaMao(cartaNaMesa);
-            }
-            if (cartaEscolhida == null) {
-                cartaEscolhida = terceiraMao(cartaNaMesa);
-            }
-            return cartaEscolhida;
+            //Carta cartaEscolhida = primeiraMao(cartaNaMesa);
+            //if (cartaEscolhida == null) {
+              //  cartaEscolhida = segundaMao(cartaNaMesa);
+            //}
+            //if (cartaEscolhida == null) {
+            //    cartaEscolhida = terceiraMao(cartaNaMesa);
+           // }
+            return this.cartas.get(0);
         }
 
         // metodo para verificar a primeira mão de cartas da partida

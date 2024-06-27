@@ -1,5 +1,4 @@
 package src;
-
 public class Carta {
 
     public final Integer numero;
